@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repo') {
+            steps {
+                echo 'Cloning GitHub repository...'
+                // Jenkins automatically checks out code from the GitHub repo that triggered the build
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Running build script...'
+                sh './Hello.sh'
+            }
+        }
+
+        stage('Success') {
+            steps {
+                echo 'Pipeline completed successfully!'
+            }
+        }
+    }
+}
